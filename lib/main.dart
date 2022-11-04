@@ -150,7 +150,7 @@ class _MyAppState extends State<MyApp> {
                         width: 300,
                         height: 500,
                         child: ListView.builder(
-                          itemCount: 91,
+                          itemCount: snapshot.data!.follow!.length,
                           itemBuilder: (context, index) {
                             return Text(snapshot.data!.follow![index].login.toString());
                           },
