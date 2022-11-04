@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class follow {
   String? name;
 
@@ -27,5 +26,15 @@ class follow {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['name'] = this.name;
     return data;
+  }
+}
+
+Future<follow> getFollowApi() async {
+  final response = await http.get(Uri.parse('https://api.github.com/users/Yoochanhong/following'));
+  print(response.body);
+  if (response.statusCode == 200){
+    return follow.fromJson(jsonDecode(response.body));
+  } else {
+    throw Exception('예외');
   }
 }
