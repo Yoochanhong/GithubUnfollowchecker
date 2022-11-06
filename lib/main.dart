@@ -41,7 +41,7 @@ Future<String> getUnfollowApi(String login) async {
   if (response.body != null) {
     return login;
   } else {
-    throw Exception('팔로잉중');
+    throw Exception('요청 한도초과');
   }
 }
 
@@ -56,6 +56,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Future<FollowList>? follow;
+  Future<String>? unfollow;
 
   @override
   void initState() {
@@ -77,22 +78,20 @@ class _MyAppState extends State<MyApp> {
                   future: follow,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return Container(
-                        width: 300,
-                        height: 500,
-                        child: ListView.builder(
-                          itemCount: snapshot.data!.follow!.length,
-                          itemBuilder: (context, index) {
-                            Future<String> unfollow = getUnfollowApi(
-                                snapshot.data!.follow![index].login.toString());
-                            return Text(
-                              unfollow.toString(),
-                            );
-                          },
-                        ),
-                      );
+                          return Container(
+                            width: 300,
+                            height: 500,
+                            child: ListView.builder(
+                              itemCount: 30,
+                              itemBuilder: (context, index) {
+                                unfollow = getUnfollowApi(snapshot.data!.follow![index].login.toString());
+                                unfollow!.then((value) => debugPrint(value));
+                                return Text(unfollow.toString());
+                              },
+                            ),
+                          );
                     } else if (snapshot.hasError) {
-                      return Text('에러 엄');
+                      return Text('에러');
                     } else {
                       return Text('실패');
                     }
