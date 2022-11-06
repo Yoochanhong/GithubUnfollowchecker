@@ -78,18 +78,21 @@ class _MyAppState extends State<MyApp> {
                   future: follow,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                          return Container(
-                            width: 300,
-                            height: 500,
-                            child: ListView.builder(
-                              itemCount: 30,
-                              itemBuilder: (context, index) {
-                                unfollow = getUnfollowApi(snapshot.data!.follow![index].login.toString());
-                                unfollow!.then((value) => debugPrint(value));
-                                return Text(unfollow.toString());
-                              },
-                            ),
-                          );
+                      return Container(
+                        width: 300,
+                        height: 500,
+                        child: ListView.builder(
+                          itemCount: snapshot.data!.follow!.length,
+                          itemBuilder: (context, index) {
+                            unfollow = getUnfollowApi(
+                                snapshot.data!.follow![index].login.toString());
+                            unfollow!.then((value){
+                              print(value);
+                            });
+                            return Text(unfollow.toString());
+                          },
+                        ),
+                      );
                     } else if (snapshot.hasError) {
                       return Text('에러');
                     } else {
