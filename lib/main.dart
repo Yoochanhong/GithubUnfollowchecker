@@ -38,7 +38,8 @@ Future<String> getUnfollowApi(String login) async {
       Uri.parse('https://api.github.com/users/${login}/following/Yoochanhong'),
       headers: {'Authorization': 'Bearer $yourToken'});
   print(response.body);
-  if (response.body != null) {
+  if (response.statusCode == 404) {
+    print(login);
     return login;
   } else {
     throw Exception('요청 한도초과');
@@ -80,16 +81,21 @@ class _MyAppState extends State<MyApp> {
                     if (snapshot.hasData) {
                       return Container(
                         width: 300,
-                        height: 500,
+                        height: 400,
                         child: ListView.builder(
                           itemCount: snapshot.data!.follow!.length,
                           itemBuilder: (context, index) {
-                            unfollow = getUnfollowApi(
-                                snapshot.data!.follow![index].login.toString());
-                            unfollow!.then((value){
-                              print(value);
-                            });
-                            return Text(unfollow.toString());
+                            unfollow = getUnfollowApi(snapshot.data!.follow![index].login.toString());
+                            return FutureBuilder(
+                              future: unfollow,
+                              builder: (context, snapshot1) {
+                                if (snapshot1.hasData) {
+                                  return Text(snapshot1.data.toString());
+                                } else {
+                                  return Text('실패 1');
+                                }
+                              },
+                            );
                           },
                         ),
                       );
