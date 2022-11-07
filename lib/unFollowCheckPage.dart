@@ -25,6 +25,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('gitHubUnfollowChecker'),
+        centerTitle: true,
       ),
       body: Container(
         child: Center(
