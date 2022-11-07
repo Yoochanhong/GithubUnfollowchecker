@@ -68,6 +68,9 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('gitHubUnfollowChecker'),
+      ),
       body: Container(
         child: Center(
           child: Column(
