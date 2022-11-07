@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:github_unfollow_checker/model.dart';
 import 'package:github_unfollow_checker/token.dart';
 import 'package:http/http.dart' as http;
+import 'package:get/get.dart';
 
 class FollowList {
   final List<Follow>? follow;
@@ -24,7 +23,7 @@ class FollowList {
 Future<FollowList> getFollowApi() async {
   final response = await http.get(
       Uri.parse(
-          'https://api.github.com/users/yeon0821/following?per_page=100'),
+          'https://api.github.com/users/${Get.arguments}/following?per_page=100'),
       headers: {'Authorization': 'Bearer $yourToken'});
   print(response.body);
   if (response.statusCode == 200) {
@@ -36,7 +35,7 @@ Future<FollowList> getFollowApi() async {
 
 Future<String> getUnfollowApi(String login) async {
   final response = await http.get(
-      Uri.parse('https://api.github.com/users/${login}/following/yeon0821'),
+      Uri.parse('https://api.github.com/users/${login}/following/${Get.arguments}'),
       headers: {'Authorization': 'Bearer $yourToken'});
   print(response.body);
   if (response.statusCode == 404) {
