@@ -23,7 +23,7 @@ class FollowList {
 Future<FollowList> getFollowApi() async {
   final response = await http.get(
       Uri.parse(
-          'https://api.github.com/users/Yoochanhong/following?per_page=100'),
+          'https://api.github.com/users/yeon0821/following?per_page=100'),
       headers: {'Authorization': 'Bearer $yourToken'});
   print(response.body);
   if (response.statusCode == 200) {
@@ -35,7 +35,7 @@ Future<FollowList> getFollowApi() async {
 
 Future<String> getUnfollowApi(String login) async {
   final response = await http.get(
-      Uri.parse('https://api.github.com/users/${login}/following/Yoochanhong'),
+      Uri.parse('https://api.github.com/users/${login}/following/yeon0821'),
       headers: {'Authorization': 'Bearer $yourToken'});
   print(response.body);
   if (response.statusCode == 404) {
@@ -92,7 +92,7 @@ class _MyAppState extends State<MyApp> {
                                 if (snapshot1.hasData) {
                                   return Text(snapshot1.data.toString());
                                 } else {
-                                  return Text('실패 1');
+                                  return SizedBox.shrink();
                                 }
                               },
                             );
