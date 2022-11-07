@@ -1,52 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:github_unfollow_checker/model.dart';
-import 'package:github_unfollow_checker/token.dart';
-import 'package:http/http.dart' as http;
-
-class FollowList {
-  final List<Follow>? follow;
-
-  FollowList({this.follow});
-
-  factory FollowList.fromJson(List<dynamic> json) {
-    List<Follow> follow = <Follow>[];
-    follow = json.map((i) => Follow.fromJson(i)).toList();
-
-    return FollowList(
-      follow: follow,
-    );
-  }
-}
-
-Future<FollowList> getFollowApi() async {
-  final response = await http.get(
-      Uri.parse(
-          'https://api.github.com/users/${Get.arguments}/following?per_page=100'),
-      headers: {'Authorization': 'Bearer $yourToken'});
-  print(response.body);
-  if (response.statusCode == 200) {
-    return FollowList.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('예외');
-  }
-}
-
-Future<String> getUnfollowApi(String login) async {
-  final response = await http.get(
-      Uri.parse(
-          'https://api.github.com/users/${login}/following/${Get.arguments}'),
-      headers: {'Authorization': 'Bearer $yourToken'});
-  print(response.body);
-  if (response.statusCode == 404) {
-    print(login);
-    return login;
-  } else {
-    throw Exception('요청 한도초과');
-  }
-}
+import 'package:github_unfollow_checker/get_follow_api.dart';
+import 'package:github_unfollow_checker/get_unfollow_api.dart';
+import 'package:github_unfollow_checker/follow_list.dart';
 
 class UnFollowCheckpage extends StatefulWidget {
   const UnFollowCheckpage({Key? key}) : super(key: key);
@@ -82,7 +37,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                   if (snapshot.hasData) {
                     return Container(
                       width: 300,
-                      height: 400,
+                      height: 500,
                       child: ListView.builder(
                         itemCount: snapshot.data!.follow!.length,
                         itemBuilder: (context, index) {

@@ -1,8 +1,8 @@
 import 'package:http/http.dart' as http;
-import 'package:github_unfollow_checker/unFollowCheckPage.dart';
 import 'package:github_unfollow_checker/token.dart';
 import 'dart:convert';
 import 'package:get/get.dart';
+import 'package:github_unfollow_checker/follow_list.dart';
 
 Future<FollowList> getFollowApi() async {
   final response = await http.get(
