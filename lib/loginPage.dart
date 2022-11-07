@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:github_unfollow_checker/unFollowCheckPage.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -28,7 +30,10 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(UnFollowCheckpage(), arguments: controller.text);
+                print(controller.text);
+              },
               child: Text('버튼'),
             ),
           ],
