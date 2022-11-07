@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.github_unfollow_checker">
    <application
-        android:label="UnfollowChecker"
+        android:label="Unfollow\nChecker"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
