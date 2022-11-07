@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:github_unfollow_checker/model.dart';
 import 'package:github_unfollow_checker/token.dart';
 import 'package:http/http.dart' as http;
-import 'package:get/get.dart';
 
 class FollowList {
   final List<Follow>? follow;
@@ -35,7 +36,8 @@ Future<FollowList> getFollowApi() async {
 
 Future<String> getUnfollowApi(String login) async {
   final response = await http.get(
-      Uri.parse('https://api.github.com/users/${login}/following/${Get.arguments}'),
+      Uri.parse(
+          'https://api.github.com/users/${login}/following/${Get.arguments}'),
       headers: {'Authorization': 'Bearer $yourToken'});
   print(response.body);
   if (response.statusCode == 404) {
@@ -46,14 +48,12 @@ Future<String> getUnfollowApi(String login) async {
   }
 }
 
-
 class UnFollowCheckpage extends StatefulWidget {
   const UnFollowCheckpage({Key? key}) : super(key: key);
 
   @override
   State<UnFollowCheckpage> createState() => _UnFollowCheckpageState();
 }
-
 
 class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   Future<FollowList>? follow;
@@ -86,12 +86,16 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                       child: ListView.builder(
                         itemCount: snapshot.data!.follow!.length,
                         itemBuilder: (context, index) {
-                          unfollow = getUnfollowApi(snapshot.data!.follow![index].login.toString());
+                          unfollow = getUnfollowApi(
+                              snapshot.data!.follow![index].login.toString());
                           return FutureBuilder(
                             future: unfollow,
                             builder: (context, snapshot1) {
                               if (snapshot1.hasData) {
-                                return Text(snapshot1.data.toString());
+                                return ListTile(
+                                  leading: Image.network(snapshot.data!.follow![index].avatarUrl.toString()),
+                                  title: Text(snapshot1.data.toString()),
+                                );
                               } else {
                                 return SizedBox.shrink();
                               }
