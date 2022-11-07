@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
                 Get.to(UnFollowCheckpage(), arguments: controller.text);
                 print(controller.text);
               },
-              child: Text('버튼'),
+              child: Icon(Icons.search),
             ),
           ],
         ),
