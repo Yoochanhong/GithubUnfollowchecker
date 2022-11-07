@@ -102,7 +102,9 @@ class _MyAppState extends State<MyApp> {
                     } else if (snapshot.hasError) {
                       return Text('에러');
                     } else {
-                      return Text('실패');
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
                     }
                   },
                 ),
