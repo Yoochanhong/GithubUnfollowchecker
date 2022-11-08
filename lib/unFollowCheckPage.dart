@@ -59,7 +59,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                       ),
                     );
                   } else if (snapshot.hasError) {
-                    return Text('에러');
+                    return Text('존재하지 않는 유저입니다.');
                   } else {
                     return Center(
                       child: CircularProgressIndicator(),
