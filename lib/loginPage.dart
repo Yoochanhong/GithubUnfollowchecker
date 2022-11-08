@@ -9,12 +9,16 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
     return Scaffold(
-      appBar: AppBar(
-        title: Text('gitHubUnFollowChecker'),
-      ),
       body: Container(
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 80, bottom: 65),
+              child: Image.asset(
+                'assets/app-logo.png',
+                width: 150,
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Container(
@@ -22,9 +26,8 @@ class LoginPage extends StatelessWidget {
                 child: TextField(
                   controller: controller,
                   decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: '깃허브 아이디를 입력해주세요.'
-                  ),
+                      border: OutlineInputBorder(),
+                      hintText: '깃허브 아이디를 입력해주세요.'),
                   keyboardType: TextInputType.name,
                 ),
               ),
