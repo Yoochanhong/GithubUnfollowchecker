@@ -8,6 +8,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
+    final formkey = GlobalKey<FormState>();
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       body: Container(
@@ -24,19 +25,25 @@ class LoginPage extends StatelessWidget {
               padding: const EdgeInsets.all(20.0),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                child: TextField(
-                  controller: controller,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: '깃허브 아이디를 입력해주세요.'),
-                  keyboardType: TextInputType.name,
+                child: Form(
+                  key: formkey,
+                  child: TextFormField(
+                    validator: (value) => value!.isEmpty ? '아이디를 입력해주세요.' : null,
+                    controller: controller,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: '깃허브 아이디를 입력해주세요.'),
+                    keyboardType: TextInputType.name,
+                  ),
                 ),
               ),
             ),
             ElevatedButton(
               onPressed: () {
-                Get.to(UnFollowCheckpage(), arguments: controller.text);
-                print(controller.text);
+                if (formkey.currentState!.validate()) {
+                  Get.to(UnFollowCheckpage(), arguments: controller.text);
+                  print(controller.text);
+                }
               },
               child: Icon(Icons.search),
             ),
