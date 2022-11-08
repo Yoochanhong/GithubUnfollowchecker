@@ -34,6 +34,9 @@ class LoginPage extends StatelessWidget {
                         border: OutlineInputBorder(),
                         hintText: '깃허브 아이디를 입력해주세요.'),
                     keyboardType: TextInputType.name,
+                    onFieldSubmitted: (String str){
+                      Get.to(UnFollowCheckpage(), arguments: str);
+                    },
                   ),
                 ),
               ),
