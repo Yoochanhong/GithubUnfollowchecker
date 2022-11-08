@@ -9,6 +9,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
     return Scaffold(
+      backgroundColor: Color(0xffFFFFFF),
       body: Container(
         child: Column(
           children: [
