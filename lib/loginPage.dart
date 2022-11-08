@@ -26,27 +26,30 @@ class LoginPage extends StatelessWidget {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: Form(
-                  key: formkey,
+                  //key: formkey,
                   child: TextFormField(
-                    validator: (value) => value!.isEmpty ? '아이디를 입력해주세요.' : null,
+                    // validator: (value) {
+                    //   if (value == null) return '아이디를 입력해주세요.';
+                    //   return null;
+                    // },
                     controller: controller,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: '깃허브 아이디를 입력해주세요.'),
                     keyboardType: TextInputType.name,
-                    onFieldSubmitted: (String str){
-                      Get.to(UnFollowCheckpage(), arguments: str);
-                    },
+                     onFieldSubmitted: (String str) {
+                       Get.to(UnFollowCheckpage(), arguments: str);
+                     },
                   ),
                 ),
               ),
             ),
             ElevatedButton(
               onPressed: () {
-                if (formkey.currentState!.validate()) {
+                // if (formkey.currentState!.validate()) {
                   Get.to(UnFollowCheckpage(), arguments: controller.text);
                   print(controller.text);
-                }
+                // }
               },
               child: Icon(Icons.search),
             ),
