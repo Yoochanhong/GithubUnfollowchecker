@@ -25,49 +25,58 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
     return Scaffold(
       body: Container(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FutureBuilder(
-                future: follow,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return Container(
-                      width: 300,
-                      height: 500,
-                      child: ListView.builder(
-                        itemCount: snapshot.data!.follow!.length,
-                        itemBuilder: (context, index) {
-                          unfollow = getUnfollowApi(
-                              snapshot.data!.follow![index].login.toString());
-                          return FutureBuilder(
-                            future: unfollow,
-                            builder: (context, snapshot1) {
-                              if (snapshot1.hasData) {
-                                return ListTile(
-                                  leading: Image.network(snapshot
-                                      .data!.follow![index].avatarUrl
-                                      .toString()),
-                                  title: Text(snapshot1.data.toString()),
-                                );
-                              } else {
-                                return SizedBox.shrink();
-                              }
-                            },
-                          );
+          child: FutureBuilder(
+            future: follow,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Container(
+                  width: 300,
+                  height: 500,
+                  child: ListView.builder(
+                    itemCount: snapshot.data!.follow!.length,
+                    itemBuilder: (context, index) {
+                      unfollow = getUnfollowApi(
+                          snapshot.data!.follow![index].login.toString());
+                      return FutureBuilder(
+                        future: unfollow,
+                        builder: (context, snapshot1) {
+                          if (snapshot1.hasData) {
+                            return ListTile(
+                              leading: Image.network(snapshot
+                                  .data!.follow![index].avatarUrl
+                                  .toString()),
+                              title: Text(snapshot1.data.toString()),
+                            );
+                          } else {
+                            return SizedBox.shrink();
+                          }
                         },
+                      );
+                    },
+                  ),
+                );
+              } else if (snapshot.hasError) {
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 80, bottom: 65),
+                      child: Image.asset(
+                        'assets/noPerson.png',
+                        width: 200,
                       ),
-                    );
-                  } else if (snapshot.hasError) {
-                    return Text('존재하지 않는 유저입니다.');
-                  } else {
-                    return Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
-                },
-              ),
-            ],
+                    ),
+                    Text(
+                      '존재하지 않는 유저입니다.',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                );
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
           ),
         ),
       ),
