@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:github_unfollow_checker/follow_list.dart';
 import 'package:github_unfollow_checker/get_follow_api.dart';
 import 'package:github_unfollow_checker/get_unfollow_api.dart';
-import 'package:github_unfollow_checker/follow_list.dart';
 
 class UnFollowCheckpage extends StatefulWidget {
   const UnFollowCheckpage({Key? key}) : super(key: key);
@@ -23,10 +23,6 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('gitHubUnfollowChecker'),
-        centerTitle: true,
-      ),
       body: Container(
         child: Center(
           child: Column(
@@ -49,7 +45,9 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                             builder: (context, snapshot1) {
                               if (snapshot1.hasData) {
                                 return ListTile(
-                                  leading: Image.network(snapshot.data!.follow![index].avatarUrl.toString()),
+                                  leading: Image.network(snapshot
+                                      .data!.follow![index].avatarUrl
+                                      .toString()),
                                   title: Text(snapshot1.data.toString()),
                                 );
                               } else {
