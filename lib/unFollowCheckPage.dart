@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:github_unfollow_checker/follow_list.dart';
 import 'package:github_unfollow_checker/get_follow_api.dart';
 import 'package:github_unfollow_checker/get_unfollow_api.dart';
+import 'package:github_unfollow_checker/web_view.dart';
+import 'package:get/get.dart';
 
 class UnFollowCheckpage extends StatefulWidget {
   const UnFollowCheckpage({Key? key}) : super(key: key);
@@ -47,6 +49,10 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                                   .data!.follow![index].avatarUrl
                                   .toString()),
                               title: Text(snapshot1.data.toString()),
+                              onLongPress: (){
+                                String url = snapshot.data!.follow![index].htmlUrl.toString();
+                                Get.to(WebViewScreen(), arguments: url);
+                              },
                             );
                           } else {
                             return SizedBox.shrink();
