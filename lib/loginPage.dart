@@ -2,13 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:github_unfollow_checker/unFollowCheckPage.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
-    final formkey = GlobalKey<FormState>();
+    //final formkey = GlobalKey<FormState>();
     return Scaffold(
       backgroundColor: Color(0xffFFFFFF),
       body: Container(
@@ -28,28 +33,31 @@ class LoginPage extends StatelessWidget {
                 child: Form(
                   //key: formkey,
                   child: TextFormField(
-                    // validator: (value) {
-                    //   if (value == null) return '아이디를 입력해주세요.';
-                    //   return null;
-                    // },
+                    validator: (value) {
+                      if (value!.isEmpty) return '아이디를 입력해주세요.';
+                      return null;
+                    },
                     controller: controller,
                     decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: '깃허브 아이디를 입력해주세요.'),
                     keyboardType: TextInputType.name,
-                     onFieldSubmitted: (String str) {
-                       Get.to(UnFollowCheckpage(), arguments: str);
-                     },
+                    onFieldSubmitted: (String str) {
+                      //if (formkey.currentState!.validate()) {
+                        Get.to(UnFollowCheckpage(), arguments: str);
+                        print(str);
+                      //}
+                    },
                   ),
                 ),
               ),
             ),
             ElevatedButton(
               onPressed: () {
-                // if (formkey.currentState!.validate()) {
+                //if (formkey.currentState!.validate()) {
                   Get.to(UnFollowCheckpage(), arguments: controller.text);
                   print(controller.text);
-                // }
+                //}
               },
               child: Icon(Icons.search),
             ),
