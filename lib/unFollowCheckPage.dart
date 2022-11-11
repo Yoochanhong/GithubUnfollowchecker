@@ -25,7 +25,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: const Color(0xffFFFFFF),
       body: Container(
         child: Center(
           child: FutureBuilder(
@@ -51,11 +51,11 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                               title: Text(snapshot1.data.toString()),
                               onLongPress: (){
                                 String url = snapshot.data!.follow![index].htmlUrl.toString();
-                                Get.to(WebViewScreen(), arguments: url);
+                                Get.to(const WebViewScreen(), arguments: url);
                               },
                             );
                           } else {
-                            return SizedBox.shrink();
+                            return const SizedBox.shrink();
                           }
                         },
                       );
@@ -72,14 +72,14 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                         width: 200,
                       ),
                     ),
-                    Text(
+                    const Text(
                       '존재하지 않는 유저입니다.',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
                 );
               } else {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               }
