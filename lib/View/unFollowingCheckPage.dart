@@ -10,6 +10,8 @@ class UnFollowingCheckpage extends StatefulWidget {
 class _UnFollowingCheckpageState extends State<UnFollowingCheckpage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+
+    );
   }
 }

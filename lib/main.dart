@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:github_unfollow_checker/loginPage.dart';
+import 'package:github_unfollow_checker/View/loginPage.dart';
 import 'package:get/get.dart';
 
 

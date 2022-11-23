@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:github_unfollow_checker/unFollowCheckPage.dart';
+import 'package:github_unfollow_checker/View/unFollowCheckPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
