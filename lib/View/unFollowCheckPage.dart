@@ -13,13 +13,13 @@ class UnFollowCheckpage extends StatefulWidget {
 }
 
 class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
-  Future<FollowList>? follow;
+  Future<FollowList>? following;
   Future<String>? unfollower;
 
   @override
   void initState() {
     super.initState();
-    follow = getFollowApi();
+    following = getFollowApi();
   }
 
   @override
@@ -29,7 +29,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
       body: Container(
         child: Center(
           child: FutureBuilder(
-            future: follow,
+            future: following,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return Container(
