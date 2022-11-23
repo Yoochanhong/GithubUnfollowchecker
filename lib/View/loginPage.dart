@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:github_unfollow_checker/View/unFollowCheckPage.dart';
+import 'package:github_unfollow_checker/View/unFollowingCheckPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -26,8 +27,13 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
             ),
           ),
+          Text(
+            '키보드에서 입력하면 언팔로잉 체크로 자동으로 넘어가요..!',
+            style: TextStyle(fontSize: 12),
+          ),
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.only(
+                top: 10, left: 20.0, bottom: 20.0, right: 20.0),
             child: Container(
               width: MediaQuery.of(context).size.width,
               child: Form(
@@ -38,24 +44,36 @@ class _LoginPageState extends State<LoginPage> {
                       border: OutlineInputBorder(),
                       hintText: '깃허브 아이디를 입력해주세요.'),
                   keyboardType: TextInputType.name,
-                  validator: (value) =>
-                  value!.isEmpty ? '아이디를 입력해주세요.' : null,
+                  validator: (value) => value!.isEmpty ? '아이디를 입력해주세요.' : null,
                   onFieldSubmitted: (String str) {
                     if (_formkey.currentState!.validate()) {
-                    Get.to(UnFollowCheckpage(), arguments: str);
+                      Get.to(UnFollowCheckpage(), arguments: str);
                     }
                   },
                 ),
               ),
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              if (_formkey.currentState!.validate()) {
-                Get.to(UnFollowCheckpage(), arguments: controller.text);
-              }
-            },
-            child: const Icon(Icons.search),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  if (_formkey.currentState!.validate()) {
+                    Get.to(UnFollowCheckpage(), arguments: controller.text);
+                  }
+                },
+                child: Text('언팔로워 체크'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formkey.currentState!.validate()) {
+                    Get.to(UnFollowingCheckpage(), arguments: controller.text);
+                  }
+                },
+                child: Text('언팔로잉 체크'),
+              ),
+            ],
           ),
         ],
       ),
