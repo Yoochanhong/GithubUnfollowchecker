@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:github_unfollow_checker/follow_list.dart';
 import 'package:github_unfollow_checker/get_follow_api.dart';
 import 'package:github_unfollow_checker/get_unfollow_api.dart';
+import 'package:github_unfollow_checker/unFollowingCheckPage.dart';
 import 'package:github_unfollow_checker/web_view.dart';
-import 'package:get/get.dart';
 
 class UnFollowCheckpage extends StatefulWidget {
   const UnFollowCheckpage({Key? key}) : super(key: key);
@@ -26,6 +27,16 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => UnFollowingCheckpage(),
+              ));
+        },
+        child: Icon(Icons.arrow_right_rounded),
+      ),
       body: Container(
         child: Center(
           child: FutureBuilder(
@@ -49,8 +60,10 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                                   .data!.follow![index].avatarUrl
                                   .toString()),
                               title: Text(snapshot1.data.toString()),
-                              onLongPress: (){
-                                String url = snapshot.data!.follow![index].htmlUrl.toString();
+                              onLongPress: () {
+                                String url = snapshot
+                                    .data!.follow![index].htmlUrl
+                                    .toString();
                                 Get.to(const WebViewScreen(), arguments: url);
                               },
                             );
