@@ -14,7 +14,7 @@ class UnFollowCheckpage extends StatefulWidget {
 
 class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   Future<FollowList>? follow;
-  Future<String>? unfollow;
+  Future<String>? unfollower;
 
   @override
   void initState() {
@@ -38,10 +38,10 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                   child: ListView.builder(
                     itemCount: snapshot.data!.follow!.length,
                     itemBuilder: (context, index) {
-                      unfollow = getUnfollowApi(
+                      unfollower = getUnfollowApi(
                           snapshot.data!.follow![index].login.toString());
                       return FutureBuilder(
-                        future: unfollow,
+                        future: unfollower,
                         builder: (context, snapshot1) {
                           if (snapshot1.hasData) {
                             return ListTile(
