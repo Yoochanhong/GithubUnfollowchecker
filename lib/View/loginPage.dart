@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Text(
-            '키보드에서 입력하면 언팔로잉 체크로 자동으로 넘어가요..!',
+            '키보드에서 입력하면 언팔로워 체크로 자동으로 넘어가요..!',
             style: TextStyle(fontSize: 12),
           ),
           Padding(
