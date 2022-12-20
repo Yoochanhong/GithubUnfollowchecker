@@ -17,7 +17,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: const Color(0xffFFFFFF),
       body: Column(
         children: [
           Padding(
@@ -27,14 +27,14 @@ class _LoginPageState extends State<LoginPage> {
               width: 150,
             ),
           ),
-          Text(
+          const Text(
             '키보드에서 입력하면 언팔로워 체크로 자동으로 넘어가요..!',
             style: TextStyle(fontSize: 12),
           ),
           Padding(
             padding: const EdgeInsets.only(
                 top: 10, left: 20.0, bottom: 20.0, right: 20.0),
-            child: Container(
+            child: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Form(
                 key: _formkey,
@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) => value!.isEmpty ? '아이디를 입력해주세요.' : null,
                   onFieldSubmitted: (String str) {
                     if (_formkey.currentState!.validate()) {
-                      Get.to(UnFollowCheckpage(), arguments: str);
+                      Get.to(const UnFollowCheckpage(), arguments: str);
                     }
                   },
                 ),
@@ -60,18 +60,18 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () {
                   if (_formkey.currentState!.validate()) {
-                    Get.to(UnFollowCheckpage(), arguments: controller.text);
+                    Get.to(const UnFollowCheckpage(), arguments: controller.text);
                   }
                 },
-                child: Text('언팔로워 체크'),
+                child: const Text('언팔로워 체크'),
               ),
               ElevatedButton(
                 onPressed: () {
                   if (_formkey.currentState!.validate()) {
-                    Get.to(UnFollowingCheckpage(), arguments: controller.text);
+                    Get.to(const UnFollowingCheckpage(), arguments: controller.text);
                   }
                 },
-                child: Text('언팔로잉 체크'),
+                child: const Text('언팔로잉 체크'),
               ),
             ],
           ),
