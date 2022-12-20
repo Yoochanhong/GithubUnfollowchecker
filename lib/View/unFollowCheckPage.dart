@@ -26,13 +26,13 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
-      body: Container(
+      body: SizedBox(
         child: Center(
           child: FutureBuilder(
             future: following,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Container(
+                return SizedBox(
                   width: 300,
                   height: 500,
                   child: ListView.builder(
