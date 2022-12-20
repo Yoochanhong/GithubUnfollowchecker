@@ -20,23 +20,23 @@ class Follow {
 
   Follow(
       {this.login,
-        this.id,
-        this.nodeId,
-        this.avatarUrl,
-        this.gravatarId,
-        this.url,
-        this.htmlUrl,
-        this.followersUrl,
-        this.followingUrl,
-        this.gistsUrl,
-        this.starredUrl,
-        this.subscriptionsUrl,
-        this.organizationsUrl,
-        this.reposUrl,
-        this.eventsUrl,
-        this.receivedEventsUrl,
-        this.type,
-        this.siteAdmin});
+      this.id,
+      this.nodeId,
+      this.avatarUrl,
+      this.gravatarId,
+      this.url,
+      this.htmlUrl,
+      this.followersUrl,
+      this.followingUrl,
+      this.gistsUrl,
+      this.starredUrl,
+      this.subscriptionsUrl,
+      this.organizationsUrl,
+      this.reposUrl,
+      this.eventsUrl,
+      this.receivedEventsUrl,
+      this.type,
+      this.siteAdmin});
 
   Follow.fromJson(Map<String, dynamic> json) {
     login = json['login'];
@@ -60,25 +60,25 @@ class Follow {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['login'] = this.login;
-    data['id'] = this.id;
-    data['node_id'] = this.nodeId;
-    data['avatar_url'] = this.avatarUrl;
-    data['gravatar_id'] = this.gravatarId;
-    data['url'] = this.url;
-    data['html_url'] = this.htmlUrl;
-    data['followers_url'] = this.followersUrl;
-    data['following_url'] = this.followingUrl;
-    data['gists_url'] = this.gistsUrl;
-    data['starred_url'] = this.starredUrl;
-    data['subscriptions_url'] = this.subscriptionsUrl;
-    data['organizations_url'] = this.organizationsUrl;
-    data['repos_url'] = this.reposUrl;
-    data['events_url'] = this.eventsUrl;
-    data['received_events_url'] = this.receivedEventsUrl;
-    data['type'] = this.type;
-    data['site_admin'] = this.siteAdmin;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['login'] = login;
+    data['id'] = id;
+    data['node_id'] = nodeId;
+    data['avatar_url'] = avatarUrl;
+    data['gravatar_id'] = gravatarId;
+    data['url'] = url;
+    data['html_url'] = htmlUrl;
+    data['followers_url'] = followersUrl;
+    data['following_url'] = followingUrl;
+    data['gists_url'] = gistsUrl;
+    data['starred_url'] = starredUrl;
+    data['subscriptions_url'] = subscriptionsUrl;
+    data['organizations_url'] = organizationsUrl;
+    data['repos_url'] = reposUrl;
+    data['events_url'] = eventsUrl;
+    data['received_events_url'] = receivedEventsUrl;
+    data['type'] = type;
+    data['site_admin'] = siteAdmin;
     return data;
   }
 }
