@@ -53,7 +53,7 @@ class _UnFollowingCheckpageState extends State<UnFollowingCheckpage> {
                                 String url = snapshot
                                     .data!.follow![index].htmlUrl
                                     .toString();
-                                Get.to(const WebViewScreen(), arguments: url);
+                                Get.to(WebViewScreen(), arguments: url);
                               },
                             );
                           } else {
