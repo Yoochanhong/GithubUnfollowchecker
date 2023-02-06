@@ -10,6 +10,17 @@ class WebViewScreen extends StatefulWidget {
 }
 
 class _WebViewScreenState extends State<WebViewScreen> {
+  late WebViewController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(const Color(0x00000000))
+      ..loadRequest(Uri.parse(Get.arguments));
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
