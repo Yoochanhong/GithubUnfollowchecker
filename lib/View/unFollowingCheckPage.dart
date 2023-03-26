@@ -19,7 +19,7 @@ class _UnFollowingCheckpageState extends State<UnFollowingCheckpage> {
   @override
   void initState() {
     super.initState();
-    follower = getFollowingApi();
+    follower = getFollowingApi(Get.arguments);
   }
 
   @override
@@ -38,7 +38,8 @@ class _UnFollowingCheckpageState extends State<UnFollowingCheckpage> {
                   itemCount: snapshot.data!.follow!.length,
                   itemBuilder: (context, index) {
                     unfollowing = getUnfollowingApi(
-                        snapshot.data!.follow![index].login.toString());
+                        snapshot.data!.follow![index].login.toString(),
+                        Get.arguments);
                     return FutureBuilder(
                       future: unfollowing,
                       builder: (context, snapshot1) {
@@ -49,8 +50,7 @@ class _UnFollowingCheckpageState extends State<UnFollowingCheckpage> {
                                 .toString()),
                             title: Text(snapshot1.data.toString()),
                             onLongPress: () {
-                              String url = snapshot
-                                  .data!.follow![index].htmlUrl
+                              String url = snapshot.data!.follow![index].htmlUrl
                                   .toString();
                               Get.to(WebViewScreen(), arguments: url);
                             },

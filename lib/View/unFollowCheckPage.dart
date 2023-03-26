@@ -38,7 +38,8 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                   itemCount: snapshot.data!.follow!.length,
                   itemBuilder: (context, index) {
                     unfollower = getUnfollowApi(
-                        snapshot.data!.follow![index].login.toString());
+                        snapshot.data!.follow![index].login.toString(),
+                        Get.arguments);
                     return FutureBuilder(
                       future: unfollower,
                       builder: (context, snapshot1) {
@@ -49,8 +50,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                                 .toString()),
                             title: Text(snapshot1.data.toString()),
                             onLongPress: () {
-                              String url = snapshot
-                                  .data!.follow![index].htmlUrl
+                              String url = snapshot.data!.follow![index].htmlUrl
                                   .toString();
                               Get.to(WebViewScreen(), arguments: url);
                             },
