@@ -26,67 +26,65 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
-      body: SizedBox(
-        child: Center(
-          child: FutureBuilder(
-            future: following,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return SizedBox(
-                  width: 300,
-                  height: 500,
-                  child: ListView.builder(
-                    itemCount: snapshot.data!.follow!.length,
-                    itemBuilder: (context, index) {
-                      unfollower = getUnfollowApi(
-                          snapshot.data!.follow![index].login.toString());
-                      return FutureBuilder(
-                        future: unfollower,
-                        builder: (context, snapshot1) {
-                          if (snapshot1.hasData) {
-                            return ListTile(
-                              leading: Image.network(snapshot
-                                  .data!.follow![index].avatarUrl
-                                  .toString()),
-                              title: Text(snapshot1.data.toString()),
-                              onLongPress: () {
-                                String url = snapshot
-                                    .data!.follow![index].htmlUrl
-                                    .toString();
-                                Get.to(WebViewScreen(), arguments: url);
-                              },
-                            );
-                          } else {
-                            return const SizedBox.shrink();
-                          }
-                        },
-                      );
-                    },
+      body: Center(
+        child: FutureBuilder(
+          future: following,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return SizedBox(
+                width: 300,
+                height: 500,
+                child: ListView.builder(
+                  itemCount: snapshot.data!.follow!.length,
+                  itemBuilder: (context, index) {
+                    unfollower = getUnfollowApi(
+                        snapshot.data!.follow![index].login.toString());
+                    return FutureBuilder(
+                      future: unfollower,
+                      builder: (context, snapshot1) {
+                        if (snapshot1.hasData) {
+                          return ListTile(
+                            leading: Image.network(snapshot
+                                .data!.follow![index].avatarUrl
+                                .toString()),
+                            title: Text(snapshot1.data.toString()),
+                            onLongPress: () {
+                              String url = snapshot
+                                  .data!.follow![index].htmlUrl
+                                  .toString();
+                              Get.to(WebViewScreen(), arguments: url);
+                            },
+                          );
+                        } else {
+                          return const SizedBox.shrink();
+                        }
+                      },
+                    );
+                  },
+                ),
+              );
+            } else if (snapshot.hasError) {
+              return Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 80, bottom: 65),
+                    child: Image.asset(
+                      'assets/noPerson.png',
+                      width: 200,
+                    ),
                   ),
-                );
-              } else if (snapshot.hasError) {
-                return Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 80, bottom: 65),
-                      child: Image.asset(
-                        'assets/noPerson.png',
-                        width: 200,
-                      ),
-                    ),
-                    const Text(
-                      '존재하지 않는 유저입니다.',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ],
-                );
-              } else {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              }
-            },
-          ),
+                  const Text(
+                    '존재하지 않는 유저입니다.',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ],
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          },
         ),
       ),
     );
