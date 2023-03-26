@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:github_unfollow_checker/View/web_view.dart';
-import 'package:github_unfollow_checker/ViewModel/follow_list.dart';
+import 'package:github_unfollow_checker/Model/follow_list.dart';
 import 'package:github_unfollow_checker/ViewModel/get_follow_api.dart';
 import 'package:github_unfollow_checker/ViewModel/get_unfollow_api.dart';
 
