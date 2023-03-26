@@ -19,7 +19,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   @override
   void initState() {
     super.initState();
-    following = getFollowApi();
+    following = getFollowApi(Get.arguments);
   }
 
   @override
