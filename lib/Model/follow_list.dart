@@ -1,4 +1,4 @@
-import 'package:github_unfollow_checker/Model/model.dart';
+import 'package:github_unfollow_checker/Model/follow.dart';
 
 class FollowList {
   final List<Follow>? follow;
