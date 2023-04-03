@@ -1,4 +1,4 @@
-class Follow {
+class User {
   String? login;
   int? id;
   String? nodeId;
@@ -18,7 +18,7 @@ class Follow {
   String? type;
   bool? siteAdmin;
 
-  Follow(
+  User(
       {this.login,
       this.id,
       this.nodeId,
@@ -38,7 +38,7 @@ class Follow {
       this.type,
       this.siteAdmin});
 
-  Follow.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, dynamic> json) {
     login = json['login'];
     id = json['id'];
     nodeId = json['node_id'];
