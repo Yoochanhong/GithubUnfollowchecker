@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:github_unfollow_checker/Model/user_list.dart';
 
-Future<UserList> getFollowApi(String userName) async {
+Future<UserList> getUnfollowerApi(String userName) async {
   final response = await http
       .get(Uri.parse('http://localhost:8080/unfollower?userName=$userName'));
   if (response.statusCode == 200) {
