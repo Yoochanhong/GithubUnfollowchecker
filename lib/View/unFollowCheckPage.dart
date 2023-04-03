@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:github_unfollow_checker/View/web_view.dart';
 import 'package:github_unfollow_checker/Model/user_list.dart';
-import 'package:github_unfollow_checker/ViewModel/get_follow_api.dart';
-import 'package:github_unfollow_checker/ViewModel/get_unfollow_api.dart';
 import 'package:github_unfollow_checker/ViewModel/get_unfollower.dart';
 
 class UnFollowCheckpage extends StatefulWidget {
@@ -28,36 +26,23 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
       backgroundColor: const Color(0xffFFFFFF),
       body: Center(
         child: FutureBuilder(
-          future: following,
+          future: unfollower,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return SizedBox(
                 width: 300,
                 height: 500,
                 child: ListView.builder(
-                  itemCount: snapshot.data!.follow!.length,
+                  itemCount: snapshot.data!.user!.length,
                   itemBuilder: (context, index) {
-                    unfollower = getUnfollowApi(
-                        snapshot.data!.follow![index].login.toString(),
-                        Get.arguments);
-                    return FutureBuilder(
-                      future: unfollower,
-                      builder: (context, snapshot1) {
-                        if (snapshot1.hasData) {
-                          return ListTile(
-                            leading: Image.network(snapshot
-                                .data!.follow![index].avatarUrl
-                                .toString()),
-                            title: Text(snapshot1.data.toString()),
-                            onLongPress: () {
-                              String url = snapshot.data!.follow![index].htmlUrl
-                                  .toString();
-                              Get.to(WebViewScreen(), arguments: url);
-                            },
-                          );
-                        } else {
-                          return const SizedBox.shrink();
-                        }
+                    return ListTile(
+                      leading: Image.network(
+                          snapshot.data!.user![index].avatarUrl.toString()),
+                      title: Text(snapshot.data!.user![index].login.toString()),
+                      onLongPress: () {
+                        String url =
+                            snapshot.data!.user![index].htmlUrl.toString();
+                        Get.to(WebViewScreen(), arguments: url);
                       },
                     );
                   },
