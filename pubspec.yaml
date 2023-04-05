@@ -39,7 +39,6 @@ dependencies:
   get: ^4.6.5
   flutter_launcher_icons: ^0.10.0
   url_launcher: ^6.1.6
-  firebase_core: ^2.4.0
   webview_flutter: ^4.0.2
 
 dev_dependencies:
