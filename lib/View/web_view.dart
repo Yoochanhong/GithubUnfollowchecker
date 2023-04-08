@@ -1,9 +1,10 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewScreen extends StatefulWidget {
-  const WebViewScreen({Key? key}) : super(key: key);
+  WebViewScreen({Key? key, required this.url}) : super(key: key);
+
+  String url;
 
   @override
   State<WebViewScreen> createState() => _WebViewScreenState();
@@ -18,7 +19,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0x00000000))
-      ..loadRequest(Uri.parse(Get.arguments));
+      ..loadRequest(Uri.parse(widget.url));
   }
 
   @override
