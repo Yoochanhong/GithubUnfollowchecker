@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:github_unfollow_checker/View/unFollowCheckPage.dart';
+import 'package:github_unfollow_checker/View/unFollowersCheckPage.dart';
 import 'package:github_unfollow_checker/View/unFollowingCheckPage.dart';
 
 class LoginPage extends StatefulWidget {
