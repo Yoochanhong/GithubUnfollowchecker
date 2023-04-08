@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:github_unfollow_checker/View/web_view.dart';
 import 'package:github_unfollow_checker/Model/user_list.dart';
 import 'package:github_unfollow_checker/ViewModel/get_unfollowers.dart';
 
 class UnFollowCheckpage extends StatefulWidget {
-  const UnFollowCheckpage({Key? key}) : super(key: key);
+  UnFollowCheckpage({Key? key, required this.userName}) : super(key: key);
+
+  String userName;
 
   @override
   State<UnFollowCheckpage> createState() => _UnFollowCheckpageState();
@@ -17,7 +18,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   @override
   void initState() {
     super.initState();
-    unfollower = getUnfollowerApi(Get.arguments);
+    unfollower = getUnfollowerApi(widget.userName);
   }
 
   @override
