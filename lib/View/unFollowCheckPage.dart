@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:github_unfollow_checker/View/web_view.dart';
 import 'package:github_unfollow_checker/Model/user_list.dart';
-import 'package:github_unfollow_checker/ViewModel/get_unfollower.dart';
+import 'package:github_unfollow_checker/ViewModel/get_unfollowers.dart';
 
 class UnFollowCheckpage extends StatefulWidget {
   const UnFollowCheckpage({Key? key}) : super(key: key);
