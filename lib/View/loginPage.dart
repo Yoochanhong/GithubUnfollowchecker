@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:github_unfollow_checker/View/unFollowCheckPage.dart';
-import 'package:github_unfollow_checker/View/unFollowingCheckPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -47,7 +45,13 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) => value!.isEmpty ? '아이디를 입력해주세요.' : null,
                   onFieldSubmitted: (String str) {
                     if (_formkey.currentState!.validate()) {
-                      Get.to(const UnFollowCheckpage(), arguments: str);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              UnFollowCheckpage(userName: str),
+                        ),
+                      );
                     }
                   },
                 ),
@@ -60,7 +64,13 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () {
                   if (_formkey.currentState!.validate()) {
-                    Get.to(const UnFollowCheckpage(), arguments: controller.text);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            UnFollowCheckpage(userName: controller.text),
+                      ),
+                    );
                   }
                 },
                 child: const Text('언팔로워 체크'),
@@ -68,7 +78,13 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () {
                   if (_formkey.currentState!.validate()) {
-                    Get.to(const UnFollowingCheckpage(), arguments: controller.text);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            UnFollowCheckpage(userName: controller.text),
+                      ),
+                    );
                   }
                 },
                 child: const Text('언팔로잉 체크'),
