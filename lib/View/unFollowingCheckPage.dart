@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:github_unfollow_checker/View/web_view.dart';
 import 'package:github_unfollow_checker/Model/user_list.dart';
 import 'package:github_unfollow_checker/ViewModel/get_unfollowing.dart';
 
 class UnFollowingCheckpage extends StatefulWidget {
-  const UnFollowingCheckpage({Key? key}) : super(key: key);
+  UnFollowingCheckpage({Key? key, required this.userName}) : super(key: key);
+
+  String userName;
 
   @override
   State<UnFollowingCheckpage> createState() => _UnFollowingCheckpageState();
@@ -17,7 +18,7 @@ class _UnFollowingCheckpageState extends State<UnFollowingCheckpage> {
   @override
   void initState() {
     super.initState();
-    unfollowing = getUnfollowingApi(Get.arguments);
+    unfollowing = getUnfollowingApi(widget.userName);
   }
 
   @override
@@ -41,8 +42,13 @@ class _UnFollowingCheckpageState extends State<UnFollowingCheckpage> {
                       title: Text(snapshot.data!.user![index].login.toString()),
                       onLongPress: () {
                         String url =
-                        snapshot.data!.user![index].htmlUrl.toString();
-                        Get.to(WebViewScreen(), arguments: url);
+                            snapshot.data!.user![index].htmlUrl.toString();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => WebViewScreen(url: url),
+                          ),
+                        );
                       },
                     );
                   },
