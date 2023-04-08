@@ -43,7 +43,12 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                       onLongPress: () {
                         String url =
                             snapshot.data!.user![index].htmlUrl.toString();
-                        Get.to(WebViewScreen(), arguments: url);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => WebViewScreen(url: url),
+                          ),
+                        );
                       },
                     );
                   },
