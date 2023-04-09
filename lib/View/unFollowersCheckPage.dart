@@ -36,20 +36,29 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                 child: ListView.builder(
                   itemCount: snapshot.data!.user!.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: Image.network(
-                          snapshot.data!.user![index].avatarUrl.toString()),
-                      title: Text(snapshot.data!.user![index].login.toString()),
-                      onLongPress: () {
-                        String url =
-                            snapshot.data!.user![index].htmlUrl.toString();
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => WebViewScreen(url: url),
-                          ),
-                        );
-                      },
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(
+                          color: Colors.black,
+                        ),
+                      ),
+                      child: ListTile(
+                        leading: Image.network(
+                            snapshot.data!.user![index].avatarUrl.toString()),
+                        title:
+                            Text(snapshot.data!.user![index].login.toString()),
+                        onLongPress: () {
+                          String url =
+                              snapshot.data!.user![index].htmlUrl.toString();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => WebViewScreen(url: url),
+                            ),
+                          );
+                        },
+                      ),
                     );
                   },
                 ),
