@@ -37,6 +37,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                   itemCount: snapshot.data!.user!.length,
                   itemBuilder: (context, index) {
                     return Container(
+                      margin: const EdgeInsets.only(bottom: 13.0),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(
