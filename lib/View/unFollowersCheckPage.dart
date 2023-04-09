@@ -31,7 +31,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return SizedBox(
-                width: 300,
+                width: MediaQuery.of(context).size.width - 50,
                 height: 500,
                 child: ListView.builder(
                   itemCount: snapshot.data!.user!.length,
