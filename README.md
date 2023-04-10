@@ -20,7 +20,7 @@ UI는 항상 개선중이고 유지보수, 기능추가도 하고있습니다.
 ### 개선된 언팔체커는 테스트 결과 어지간하면 2초 이내로 모든 리스트를 보여줍니다.
 
 
-<img src = 'https://postfiles.pstatic.net/MjAyMzA0MTBfMjIy/MDAxNjgxMTMyNjQ4NzI3.x_WJoV0wfao5rTUQ5-e40lX9rOOo9yUX5UihdhipWrMg.xBiqYhLF6DXb8vmIn7_ukx0JRAe4A9sjy7CsVHk2z-Ag.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-10_%EC%98%A4%ED%9B%84_10.16.44.png?type=w966' width=200px/>
+<img src = 'https://postfiles.pstatic.net/MjAyMzA0MTBfMjIy/MDAxNjgxMTMyNjQ4NzI3.x_WJoV0wfao5rTUQ5-e40lX9rOOo9yUX5UihdhipWrMg.xBiqYhLF6DXb8vmIn7_ukx0JRAe4A9sjy7CsVHk2z-Ag.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-10_%EC%98%A4%ED%9B%84_10.16.44.png?type=w966' width=400px/>
 
 만약 언팔로워나 언팔로잉 유저가 없을 시 존재하지 않아도 없는 유저라고 뜨던 버그를 백엔드단에서 비어있는 리스트에 쓰레기값을 추가해줌으로써 없는 유저인지, 리스트가 비어있는지를 판별했습니다.
 
