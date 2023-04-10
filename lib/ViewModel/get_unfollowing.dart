@@ -8,6 +8,6 @@ Future<UserList> getUnfollowingApi(String userName) async {
   if (response.statusCode == 200) {
     return UserList.fromJson(jsonDecode(response.body));
   } else {
-    throw Exception('예외');
+    throw Exception("존재하지 않는 유저");
   }
 }
