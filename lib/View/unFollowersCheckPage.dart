@@ -29,9 +29,8 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
         child: FutureBuilder(
           future: unfollower,
           builder: (context, snapshot) {
-            if (snapshot.hasData && snapshot.data!.user![0].htmlUrl == "1") {
-              return Text("얘 없음");
-            } else if (snapshot.hasData) {
+            if (snapshot.hasData) {
+              if (snapshot.data!.user![0].htmlUrl == "1") return Text("얘 없음");
               return SizedBox(
                 width: MediaQuery.of(context).size.width - 50,
                 height: MediaQuery.of(context).size.height - 200,
