@@ -64,13 +64,11 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                         ),
                       ),
                       child: ListTile(
-                        leading: Image.network(
-                            snapshot.data!.user![index].avatarUrl.toString()),
-                        title:
-                            Text(snapshot.data!.user![index].login.toString()),
+                        leading:
+                            Image.network(list[index].avatarUrl.toString()),
+                        title: Text(list[index].login.toString()),
                         onLongPress: () {
-                          String url =
-                              snapshot.data!.user![index].htmlUrl.toString();
+                          String url = list[index].htmlUrl.toString();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
