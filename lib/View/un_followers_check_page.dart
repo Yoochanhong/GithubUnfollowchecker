@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_unfollow_checker/Model/user.dart';
 import 'package:github_unfollow_checker/View/web_view.dart';
 import 'package:github_unfollow_checker/Model/user_list.dart';
 import 'package:github_unfollow_checker/ViewModel/get_unfollow.dart';
@@ -14,18 +15,22 @@ class UnFollowCheckpage extends StatefulWidget {
 
 class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   Future<UserList>? unfollower;
+  List<User>? list;
 
   @override
   void initState() {
     super.initState();
     unfollower = getUnfollow(widget.userName, "unfollowers");
   }
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: TextField(),
+      ),
       body: Center(
         child: FutureBuilder(
           future: unfollower,
