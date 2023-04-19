@@ -25,6 +25,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
+      appBar: AppBar(),
       body: Center(
         child: FutureBuilder(
           future: unfollower,
