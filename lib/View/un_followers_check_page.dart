@@ -45,42 +45,45 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
           future: unfollower,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              if (snapshot.data!.user![0].htmlUrl == "1") return Text("얘 없음");
-              return SizedBox(
-                width: MediaQuery.of(context).size.width - 50,
-                height: MediaQuery.of(context).size.height - 200,
-                child: ListView.builder(
-                  itemCount: snapshot.data!.user!.length,
-                  itemBuilder: (context, index) {
-                    for (int i = 0; i < snapshot.data!.user!.length; i++) {
-                      list.add(snapshot.data!.user![i]);
-                    }
-                    return Container(
-                      margin: const EdgeInsets.only(bottom: 13.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(
-                          color: Colors.black,
+              if (snapshot.data!.user![0].htmlUrl == "1")
+                return Text("얘 없음");
+              else {
+                for (int i = 0; i < snapshot.data!.user!.length; i++) {
+                  list.add(snapshot.data!.user![i]);
+                }
+                return SizedBox(
+                  width: MediaQuery.of(context).size.width - 50,
+                  height: MediaQuery.of(context).size.height - 200,
+                  child: ListView.builder(
+                    itemCount: list.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 13.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          border: Border.all(
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      child: ListTile(
-                        leading:
-                            Image.network(list[index].avatarUrl.toString()),
-                        title: Text(list[index].login.toString()),
-                        onLongPress: () {
-                          String url = list[index].htmlUrl.toString();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => WebViewScreen(url: url),
-                            ),
-                          );
-                        },
-                      ),
-                    );
-                  },
-                ),
-              );
+                        child: ListTile(
+                          leading:
+                              Image.network(list[index].avatarUrl.toString()),
+                          title: Text(list[index].login.toString()),
+                          onLongPress: () {
+                            String url = list[index].htmlUrl.toString();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => WebViewScreen(url: url),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                );
+              }
             } else if (snapshot.hasError) {
               return Column(
                 children: [
