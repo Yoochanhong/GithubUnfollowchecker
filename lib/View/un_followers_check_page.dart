@@ -22,7 +22,16 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
     super.initState();
     unfollower = getUnfollow(widget.userName, "unfollowers");
   }
-  
+
+  List<User> search(String query) {
+    List<User> result = [];
+    for (User user in list!) {
+      if (user.login!.contains(query)) {
+        result.add(user);
+      }
+    }
+    return result;
+  }
 
   @override
   Widget build(BuildContext context) {
