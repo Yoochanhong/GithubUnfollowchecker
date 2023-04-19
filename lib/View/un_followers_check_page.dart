@@ -36,6 +36,14 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
         result.add(user);
       }
     }
+    if (result.isEmpty) {
+      User user = User(
+          login: "검색결과가 존재하지 않습니다.",
+          htmlUrl: "https://github.com/asdfsdgdfgr",
+          avatarUrl:
+              "https://search.pstatic.net/sunny/?src=https%3A%2F%2Flive.staticflickr.com%2F3505%2F4070809932_21ff533bed.jpg&type=sc960_832");
+      result.add(user);
+    }
     return result;
   }
 
