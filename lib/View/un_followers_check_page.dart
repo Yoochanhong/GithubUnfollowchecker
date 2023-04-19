@@ -15,7 +15,7 @@ class UnFollowCheckpage extends StatefulWidget {
 
 class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
   Future<UserList>? unfollower;
-  List<User>? list;
+  List<User> list = List.empty(growable: true);
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
 
   List<User> search(String query) {
     List<User> result = [];
-    for (User user in list!) {
+    for (User user in list) {
       if (user.login!.contains(query)) {
         result.add(user);
       }
@@ -52,6 +52,9 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                 child: ListView.builder(
                   itemCount: snapshot.data!.user!.length,
                   itemBuilder: (context, index) {
+                    for (int i = 0; i < snapshot.data!.user!.length; i++) {
+                      list.add(snapshot.data!.user![i]);
+                    }
                     return Container(
                       margin: const EdgeInsets.only(bottom: 13.0),
                       decoration: BoxDecoration(
