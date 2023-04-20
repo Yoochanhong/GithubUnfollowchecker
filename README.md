@@ -24,4 +24,12 @@ UI는 항상 개선중이고 유지보수, 기능추가도 하고있습니다.
 
 만약 언팔로워나 언팔로잉 유저가 없을 시 존재하지 않아도 없는 유저라고 뜨던 버그를 백엔드단에서 비어있는 리스트에 쓰레기값을 추가해줌으로써 없는 유저인지, 리스트가 비어있는지를 판별했습니다.
 
-프론트단에서 받아온 데이터에 "1"이 들어있을 경우 조건을 분리시켜 보여줄 계획입니다.
+프론트단에서 받아온 데이터에 "1"이 들어있을 경우 조건을 분리시켜 보여줄 계획입니다. (2023 04 10 분기처리 완료)
+
+### 유저 검색 기능 추가
+
+<img src = 'https://postfiles.pstatic.net/MjAyMzA0MjBfMTQz/MDAxNjgxOTkyNDU4Nzk1.NyjnAEbzFfJP5bBKgLJEFgNv_YkW_twDT7qHRftgX7Mg.d8QHDejgFeGglF13S8qARCQufFXAMCWK8ekt-FN7tFMg.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-20_%EC%98%A4%ED%9B%84_9.05.57.png?type=w966' width = 300px/> <img src = 'https://postfiles.pstatic.net/MjAyMzA0MjBfMjAz/MDAxNjgxOTkyNDY1MDU4.XMWu6jVqH3TW_W6aZp2x4VJ_yvWUxWDTHaceGkjTtHsg._eRAqeZoqpgoiIbj50aDpH2tpj93anrul96SqWz2r_Ag.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-20_%EC%98%A4%ED%9B%84_9.06.08.png?type=w966' width=300px/>
+
+앱바에 TextField를 추가시켜 TextController에 있는 글자가 포함된 리스트만 보여줍니다.
+
+만약 없는 유저일 경우 검색결과가 존재하지 않는다고 표시해주었습니다. (2023 04 20)
