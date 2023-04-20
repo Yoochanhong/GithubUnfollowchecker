@@ -70,7 +70,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                   children: [
                     Image.asset("assets/app-logo.png", width: 200),
                     Column(
-                      children: [
+                      children: const [
                         Text(
                           "축하드립니다!",
                           style: TextStyle(
