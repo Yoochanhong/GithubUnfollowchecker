@@ -68,6 +68,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
               if (snapshot.data!.user![0].htmlUrl == "1") {
                 return Column(
                   children: [
+                    const SizedBox(height: 50.0),
                     Image.asset("assets/app-logo.png", width: 200),
                     const SizedBox(height: 60.0),
                     Column(
