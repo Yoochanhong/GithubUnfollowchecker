@@ -65,9 +65,29 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
           future: unfollower,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              if (snapshot.data!.user![0].htmlUrl == "1")
-                return Text("얘 없음");
-              else {
+              if (snapshot.data!.user![0].htmlUrl == "1") {
+                return Column(
+                  children: [
+                    Image.asset("assets/app-logo.png", width: 200),
+                    Column(
+                      children: [
+                        Text(
+                          "축하드립니다!",
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                        ),
+                        Text(
+                          "모든 사람들이 팔로우하고 있군요 ^_^",
+                          style: TextStyle(
+                            fontSize: 20.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              } else {
                 return SizedBox(
                   width: MediaQuery.of(context).size.width - 50,
                   height: MediaQuery.of(context).size.height - 200,
