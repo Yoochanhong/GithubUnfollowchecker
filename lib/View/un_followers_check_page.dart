@@ -69,6 +69,7 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
                 return Column(
                   children: [
                     Image.asset("assets/app-logo.png", width: 200),
+                    const SizedBox(height: 60.0),
                     Column(
                       children: const [
                         Text(
