@@ -23,7 +23,9 @@ class _UnFollowCheckpageState extends State<UnFollowCheckpage> {
     super.initState();
     unfollower = getUnfollow(widget.userName, "unfollowers").then((value) {
       for (int i = 0; i < value.user!.length; i++) {
-        list.add(value.user![i]);
+        if (value.user![i].type == "User") {
+          list.add(value.user![i]);
+        }
       }
       return value;
     });
