@@ -34,8 +34,14 @@ UI는 항상 개선중이고 유지보수, 기능추가도 하고있습니다.
 
 만약 없는 유저일 경우 검색결과가 존재하지 않는다고 표시해주었습니다. (2023 04 20)
 
-🌟🌟 2023-04-21 부터 올가를 구분해서 보여드립니다!!
+### 🌟🌟 2023-04-21 부터 올가를 구분해서 보여드립니다!!
 
 <img src = 'https://postfiles.pstatic.net/MjAyMzA0MjFfMjk2/MDAxNjgyMDQ2NjUxODAx.V406_HyKdp6zNNCg0M2XLAq0te2lelUeDuvaVNnXH78g.C6tCDWUso0tBrnQuThSiGWmza9MAftO61vcaukGwDdYg.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-21_%EC%98%A4%ED%9B%84_12.06.20.png?type=w966' width = 500px/> 
 
 타입이 User인 사람만 추출해서 리스트에 넣는 방식으로 보여줍니다.
+
+
+
+<img src = 'https://postfiles.pstatic.net/MjAyMzA0MjFfMTcz/MDAxNjgyMDQ2ODg5NjQ1.c1Hkba8UUGPQPXAfG5JZ2bqTHpiqXOPU90aXH0gZ4xEg.yYzawrabyCq9awO--s7tbIPdVzsFiU38SuqFjK1s8a0g.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-21_%EC%98%A4%ED%9B%84_12.13.39.png?type=w966' width = 300px/><img src = 'https://postfiles.pstatic.net/MjAyMzA0MjFfOTEg/MDAxNjgyMDQ2ODkzNDEw.bgqegVgnReQpYzGxSH_uvzzoriKsC3BJMYopOh-Ln0Qg.6cWV5tF8WnVXyVmXvDVq8c4yTEf3_n2qUPlkJMkp6ssg.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-21_%EC%98%A4%ED%9B%84_12.13.51.png?type=w966' width = 300px/>
+
+수정 전에는 Organizations들이 포함되어 언팔로우 리스트에 올라왔지만, 수정 후부터는 유저만 뜨도록 변경되었습니다.
