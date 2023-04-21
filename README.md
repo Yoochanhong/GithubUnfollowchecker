@@ -33,3 +33,9 @@ UI는 항상 개선중이고 유지보수, 기능추가도 하고있습니다.
 앱바에 TextField를 추가시켜 TextController에 있는 글자가 포함된 리스트만 보여줍니다.
 
 만약 없는 유저일 경우 검색결과가 존재하지 않는다고 표시해주었습니다. (2023 04 20)
+
+🌟🌟 2023-04-21 부터 올가를 구분해서 보여드립니다!!
+
+<img src = 'https://postfiles.pstatic.net/MjAyMzA0MjFfMjk2/MDAxNjgyMDQ2NjUxODAx.V406_HyKdp6zNNCg0M2XLAq0te2lelUeDuvaVNnXH78g.C6tCDWUso0tBrnQuThSiGWmza9MAftO61vcaukGwDdYg.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-21_%EC%98%A4%ED%9B%84_12.06.20.png?type=w966' width = 500px/> 
+
+타입이 User인 사람만 추출해서 리스트에 넣는 방식으로 보여줍니다.
