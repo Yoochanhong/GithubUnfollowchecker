@@ -45,3 +45,9 @@ UI는 항상 개선중이고 유지보수, 기능추가도 하고있습니다.
 <img src = 'https://postfiles.pstatic.net/MjAyMzA0MjFfMTcz/MDAxNjgyMDQ2ODg5NjQ1.c1Hkba8UUGPQPXAfG5JZ2bqTHpiqXOPU90aXH0gZ4xEg.yYzawrabyCq9awO--s7tbIPdVzsFiU38SuqFjK1s8a0g.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-21_%EC%98%A4%ED%9B%84_12.13.39.png?type=w966' width = 300px/><img src = 'https://postfiles.pstatic.net/MjAyMzA0MjFfOTEg/MDAxNjgyMDQ2ODkzNDEw.bgqegVgnReQpYzGxSH_uvzzoriKsC3BJMYopOh-Ln0Qg.6cWV5tF8WnVXyVmXvDVq8c4yTEf3_n2qUPlkJMkp6ssg.PNG.chanhongy6/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2023-04-21_%EC%98%A4%ED%9B%84_12.13.51.png?type=w966' width = 300px/>
 
 수정 전에는 Organizations들이 포함되어 언팔로우 리스트에 올라왔지만, 수정 후부터는 유저만 뜨도록 변경되었습니다.
+
+### 2023-04-30 MVVM으로 변경
+
+그동안 잘못 알고 있던 MVVM 아키텍쳐를 올바르게 설계해서 재구조화 시켰습니다.
+Stateful위젯 안에 FutureBuilder로 데이터 처리 결과에 따라 분기처리하던 로직을 Provider를 사용해 ViewModel로 가져오는 결과에서 로딩이 구현되지 않아 체감상 느릴 수 있습니다.
+로딩과 그동안 있던 기능들까지 다시 복구할 예정입니다.
