@@ -12,7 +12,11 @@ class UnFollowCheckpage extends StatelessWidget {
     viewModel = Provider.of<UnfollowViewModel>(context);
     return Scaffold(
       appBar: AppBar(
-        title: TextField(),
+        title: TextField(
+          onChanged: (value){
+            viewModel.search(value);
+          },
+        ),
       ),
       backgroundColor: const Color(0xffFFFFFF),
       body: Center(
