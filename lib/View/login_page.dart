@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:github_unfollow_checker/View/un_followers_check_page.dart';
 import 'package:github_unfollow_checker/View/un_following_check_page.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -49,8 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              UnFollowCheckpage(),
+                          builder: (context) => UnFollowCheckpage(),
                         ),
                       );
                     }
@@ -68,8 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            UnFollowCheckpage(),
+                        builder: (context) => UnFollowCheckpage(),
                       ),
                     );
                   }
@@ -82,8 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            UnFollowingCheckpage(userName: controller.text),
+                        builder: (context) => UnFollowingCheckpage(),
                       ),
                     );
                   }
