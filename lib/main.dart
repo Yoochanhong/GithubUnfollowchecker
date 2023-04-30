@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:github_unfollow_checker/View/login_page.dart';
+import 'package:github_unfollow_checker/ViewModel/unfollow_view_model.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,9 +10,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+    return ChangeNotifierProvider<UnfollowViewModel>(
+      create: (context) => UnfollowViewModel(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: LoginPage(),
+      ),
     );
   }
 }
