@@ -13,6 +13,8 @@ class UnfollowViewModel with ChangeNotifier {
   }
 
   Future getUserList(String queryName, userName) async {
+    _userList = List.empty();
+    notifyListeners();
     _userList = await _repository.getUserList(queryName, userName);
     notifyListeners();
   }
