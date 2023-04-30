@@ -11,6 +11,9 @@ class UnFollowCheckpage extends StatelessWidget {
   Widget build(BuildContext context) {
     viewModel = Provider.of<UnfollowViewModel>(context);
     return Scaffold(
+      appBar: AppBar(
+        title: TextField(),
+      ),
       backgroundColor: const Color(0xffFFFFFF),
       body: Center(
         child: viewModel.userList.isNotEmpty
