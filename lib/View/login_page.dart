@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_unfollow_checker/View/un_followers_check_page.dart';
 import 'package:github_unfollow_checker/View/un_following_check_page.dart';
-import 'package:github_unfollow_checker/ViewModel/unfollow_view_model.dart';
-import 'package:provider/provider.dart';
-
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -13,12 +10,11 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
+
   TextEditingController controller = TextEditingController();
-  late UnfollowViewModel viewModel;
 
   @override
   Widget build(BuildContext context) {
-    viewModel = Provider.of<UnfollowViewModel>(context);
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
       body: Column(
@@ -50,7 +46,6 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) => value!.isEmpty ? '아이디를 입력해주세요.' : null,
                   onFieldSubmitted: (String str) {
                     if (_formkey.currentState!.validate()) {
-                      viewModel.getUserList("unfollowers", str);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -70,7 +65,6 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 onPressed: () {
                   if (_formkey.currentState!.validate()) {
-                    viewModel.getUserList("unfollowers", controller.text);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
