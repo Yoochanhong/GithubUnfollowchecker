@@ -38,40 +38,58 @@ class UnFollowCheckpage extends StatelessWidget {
                       ),
                     ],
                   )
-                : SizedBox(
-                    width: MediaQuery.of(context).size.width - 50,
-                    height: MediaQuery.of(context).size.height - 200,
-                    child: ListView.builder(
-                      itemCount: viewModel.userList.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: const EdgeInsets.only(bottom: 13.0),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8.0),
-                            border: Border.all(
-                              color: Colors.black,
+                : viewModel.userList[0].htmlUrl == "2"
+                    ? Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 80, bottom: 65),
+                            child: Image.asset(
+                              'assets/noPerson.png',
+                              width: 200,
                             ),
                           ),
-                          child: ListTile(
-                            leading: Image.network(
-                                viewModel.userList[index].avatarUrl.toString()),
-                            title: Text(
-                                viewModel.userList[index].login.toString()),
-                            onLongPress: () {
-                              String url =
-                                  viewModel.userList[index].htmlUrl.toString();
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => WebViewScreen(url: url),
-                                ),
-                              );
-                            },
+                          const Text(
+                            '존재하지 않는 유저입니다.',
+                            style: TextStyle(fontSize: 16),
                           ),
-                        );
-                      },
-                    ),
-                  )
+                        ],
+                      )
+                    : SizedBox(
+                        width: MediaQuery.of(context).size.width - 50,
+                        height: MediaQuery.of(context).size.height - 200,
+                        child: ListView.builder(
+                          itemCount: viewModel.userList.length,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              margin: const EdgeInsets.only(bottom: 13.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                              ),
+                              child: ListTile(
+                                leading: Image.network(viewModel
+                                    .userList[index].avatarUrl
+                                    .toString()),
+                                title: Text(
+                                    viewModel.userList[index].login.toString()),
+                                onLongPress: () {
+                                  String url = viewModel.userList[index].htmlUrl
+                                      .toString();
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          WebViewScreen(url: url),
+                                    ),
+                                  );
+                                },
+                              ),
+                            );
+                          },
+                        ),
+                      )
             : const CircularProgressIndicator(),
       ),
     );
