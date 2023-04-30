@@ -9,8 +9,11 @@ class DataSource {
         .get(Uri.parse("http://localhost:8080/$queryName?userName=$userName"));
     if (response.statusCode == 200) {
       return UserList.fromJson(jsonDecode(response.body));
+    } else {
+      List<User> list = List.empty(growable: true);
+      list.add(User(login: "2", avatarUrl: "2", htmlUrl: "2", type: "2"));
+      return UserList(user: list);
     }
-    throw Exception("존재하지 않는 유저");
   }
 
   Future<List<User>> getUserList(String queryName, userName) =>
