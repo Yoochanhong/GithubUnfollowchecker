@@ -10,11 +10,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: ChangeNotifierProvider<UnfollowViewModel>(
-        create: (context) => UnfollowViewModel(),
-        child: const LoginPage(),
+    return ChangeNotifierProvider<UnfollowViewModel>(
+      create: (context) => UnfollowViewModel(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: LoginPage(),
       ),
     );
   }
