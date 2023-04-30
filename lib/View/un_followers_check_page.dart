@@ -14,39 +14,64 @@ class UnFollowCheckpage extends StatelessWidget {
       backgroundColor: const Color(0xffFFFFFF),
       body: Center(
         child: viewModel.userList.isNotEmpty
-            ? SizedBox(
-                width: MediaQuery.of(context).size.width - 50,
-                height: MediaQuery.of(context).size.height - 200,
-                child: ListView.builder(
-                  itemCount: viewModel.userList.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.only(bottom: 13.0),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(
-                          color: Colors.black,
-                        ),
-                      ),
-                      child: ListTile(
-                        leading: Image.network(
-                            viewModel.userList[index].avatarUrl.toString()),
-                        title: Text(viewModel.userList[index].login.toString()),
-                        onLongPress: () {
-                          String url =
-                              viewModel.userList[index].htmlUrl.toString();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => WebViewScreen(url: url),
+            ? viewModel.userList[0].htmlUrl == "1"
+                ? Column(
+                    children: [
+                      const SizedBox(height: 50.0),
+                      Image.asset("assets/app-logo.png", width: 200),
+                      const SizedBox(height: 60.0),
+                      Column(
+                        children: const [
+                          Text(
+                            "축하드립니다!",
+                            style: TextStyle(
+                              fontSize: 20.0,
                             ),
-                          );
-                        },
+                          ),
+                          Text(
+                            "모든 사람들이 팔로우하고 있군요 ^_^",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                            ),
+                          ),
+                        ],
                       ),
-                    );
-                  },
-                ),
-              )
+                    ],
+                  )
+                : SizedBox(
+                    width: MediaQuery.of(context).size.width - 50,
+                    height: MediaQuery.of(context).size.height - 200,
+                    child: ListView.builder(
+                      itemCount: viewModel.userList.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: const EdgeInsets.only(bottom: 13.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: Colors.black,
+                            ),
+                          ),
+                          child: ListTile(
+                            leading: Image.network(
+                                viewModel.userList[index].avatarUrl.toString()),
+                            title: Text(
+                                viewModel.userList[index].login.toString()),
+                            onLongPress: () {
+                              String url =
+                                  viewModel.userList[index].htmlUrl.toString();
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => WebViewScreen(url: url),
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  )
             : const CircularProgressIndicator(),
       ),
     );
