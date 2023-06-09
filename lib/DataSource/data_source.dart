@@ -1,12 +1,13 @@
 import 'package:github_unfollow_checker/Model/user.dart';
 import 'package:github_unfollow_checker/Model/user_list.dart';
+import 'package:github_unfollow_checker/secret.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class DataSource {
   Future<UserList> _getUserList(String queryName, userName) async {
-    final response = await http
-        .get(Uri.parse("http://localhost:8080/$queryName?userName=$userName"));
+    final response =
+        await http.get(Uri.parse("$baseUrl/$queryName?userName=$userName"));
     if (response.statusCode == 200) {
       return UserList.fromJson(jsonDecode(response.body));
     } else {
