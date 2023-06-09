@@ -3,8 +3,8 @@ import 'package:github_unfollow_checker/View/web_view.dart';
 import 'package:provider/provider.dart';
 import 'package:github_unfollow_checker/ViewModel/unfollow_view_model.dart';
 
-class UnFollowCheckpage extends StatelessWidget {
-  UnFollowCheckpage({Key? key}) : super(key: key);
+class UnFollowCheckPage extends StatelessWidget {
+  UnFollowCheckPage({Key? key}) : super(key: key);
   late UnfollowViewModel viewModel;
 
   @override

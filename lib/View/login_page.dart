@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    viewModel = Provider.of(context);
+    viewModel = Provider.of<UnfollowViewModel>(context);
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
       body: Column(
@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => UnFollowCheckpage(),
+                          builder: (context) => UnFollowCheckPage(),
                         ),
                       );
                     }
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => UnFollowCheckpage(),
+                        builder: (context) => UnFollowCheckPage(),
                       ),
                     );
                   }
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => UnFollowingCheckpage(),
+                        builder: (context) => UnFollowingCheckPage(),
                       ),
                     );
                   }
