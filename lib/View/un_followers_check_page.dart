@@ -27,8 +27,8 @@ class UnFollowCheckPage extends StatelessWidget {
                       const SizedBox(height: 50.0),
                       Image.asset("assets/app-logo.png", width: 200),
                       const SizedBox(height: 60.0),
-                      Column(
-                        children: const [
+                      const Column(
+                        children: [
                           Text(
                             "축하드립니다!",
                             style: TextStyle(
